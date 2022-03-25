@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+    background-color: #101820FF;
+    color:#45ADFF;
+}
+
+form{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.title {
+  margin-bottom: 50px;
+  padding: 7px 4px 7px 4px;
+  border: 0.5px solid #101820FF;
+  border-radius: 5px;
+  margin-right: 12px;
+  width: 220px;
+}
+.title:focus {
+  outline: none;
+
+}
+.category{
+  text-transform: capitalize;
+  margin-left: 10px;
+  background-color: transparent;
+  border: 1px solid #45ADFF;
+  padding: 7px 14px;
+  border-radius: 7px;
+  transition: 0.3s;
+  color: #45ADFF;
+  cursor: pointer;
+}
+.category option{
+  background-color:#101820FF;
+  border: 1px solid #45ADFF;
+  border-radius: 5px;
+}
+.addTodo {
+  text-transform: capitalize;
+  margin-left: 10px;
+  background-color: #45ADFF;
+  border: 1px solid #45ADFF;
+  padding: 7px 14px;
+  border-radius: 7px;
+  transition: 0.3s;
+  color: white;
+  cursor: pointer;
+}
+
+.addTodo:hover {
+  border: 1px solid #45ADFF;
+  background-color:#101820FF;
+  color: #45ADFF;
+}
+.addTodo:active {
+  transform: scale(0.9);
+}
+
+.todos {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ list-style: none;
+ text-transform: capitalize;
+}
+
+.list{
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  font-size: 17px;
+  color: #fff;
+  border-radius: 10px;
+  margin: 15px;
+  width: 600px;
+  height: 50px;
+  background-color:#45ADFF ;
+}
+
+#delete, #edit{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+#delete,#edit:active {
+  transform: scale(0.9);
+}
+i {
+  font-size:20px;
+  padding-left:15px;
+}

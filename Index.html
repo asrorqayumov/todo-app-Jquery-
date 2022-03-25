@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form>
+      <input class="title" name="title" type="text" required />
+      <div>
+        <select class="category" name="category" id="category">
+          <option value="daily">daily</option>
+          <option value="weekly">weekly</option>
+          <option value="monthly">monthly</option>
+          <option value="yearly">yearly</option>
+        </select>
+      </div>
+      <div>
+        <button class="addTodo">add to do</button>
+      </div>
+    </form>
+
+    <ol type="1" class="todos">
+      <li class="list" id="">
+        <span class="todoTitle"> nimadur </span>
+        <span class="todoCategory"> Mothly </span>
+        <div>
+          <i id="edit" class="fa-solid fa-pen" onclick="editTodo(this)"></i>
+          <i
+            id="delete"
+            class="fa-solid fa-trash"
+            onclick="deleteToDo(this)"
+          ></i>
+        </div>
+      </li>
+    </ol>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
