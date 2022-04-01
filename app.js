@@ -1,16 +1,14 @@
 let database = [
-  {
-    id: 126599,
-    title: "Dangasalik qilish",
-    isChecked: true,
-    date: new Date(),
-    category: "Daily",
-  },
+  ...JSON.parse(
+    localStorage.getItem("todo") ? localStorage.getItem("todo") : "[]"
+  ),
 ];
+function saveLocalTodos(todo) {
+  localStorage.setItem("todo", JSON.stringify(todo));
+}
 
 let form = document.forms[0];
 let todoList = document.querySelector(".todos");
-
 
 function ToDo(title, category) {
   this.id = Math.round(Math.random() * (999999 - 100000) + 100000);
@@ -42,12 +40,11 @@ function displayToDoList(database) {
   <i id="delete" class="fa-solid fa-trash"  onclick="deleteToDo(this)"></i> 
   </div> 
   </li>`;
-});
-todoList.innerHTML = html;
+  });
+  todoList.innerHTML = html;
 }
 
 // Add
-
 function AddToDo(todo) {
   database.push(todo);
   todoList.innerHTML += `
@@ -64,16 +61,7 @@ function AddToDo(todo) {
   </div>  
   </li>`;
   form.title.value = "";
-}
-
-// Delete
-function deleteToDo(e) {
-  let id = e.parentElement.parentElement.id;
-  let filteredDatabase = database.filter((item) => {
-    return item.id != id;
-  });
-  database = filteredDatabase;
-  displayToDoList(database);
+  saveLocalTodos(database);
 }
 
 // Edit
@@ -85,9 +73,22 @@ function editTodo(e) {
   let title = prompt("Edit a name:");
   findTodo.title = title;
   displayToDoList(database);
+  saveLocalTodos(database);
 }
 
+// Delete
+function deleteToDo(e) {
+  let id = e.parentElement.parentElement.id;
+  let filteredDatabase = database.filter((item) => {
+    return item.id != id;
+  });
+  database = filteredDatabase;
+  displayToDoList(database);
+  saveLocalTodos(database);
+}
 
 window.onload = () => {
   displayToDoList(database);
 };
+
+
