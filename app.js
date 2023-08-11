@@ -3,7 +3,7 @@ let database = [
     localStorage.getItem("todo") ? localStorage.getItem("todo") : "[]"
   ),
 ];
-function saveLocalTodos(todo) {
+function saveTodosToLocalStorage(todo) {
   localStorage.setItem("todo", JSON.stringify(todo));
 }
 
@@ -61,19 +61,22 @@ function AddToDo(todo) {
   </div>  
   </li>`;
   form.title.value = "";
-  saveLocalTodos(database);
+  saveTodosToLocalStorage(database);
 }
 
-// Edit
+//  Edit
 function editTodo(e) {
   let id = e.parentElement.parentElement.id;
   let findTodo = database.find((item) => {
     return item.id == id;
   });
   let title = prompt("Edit a name:");
+  if (title == '' || title == null) {
+    title = findTodo.title
+  }
   findTodo.title = title;
   displayToDoList(database);
-  saveLocalTodos(database);
+  saveTodosToLocalStorage(database);
 }
 
 // Delete
@@ -84,11 +87,9 @@ function deleteToDo(e) {
   });
   database = filteredDatabase;
   displayToDoList(database);
-  saveLocalTodos(database);
+  saveTodosToLocalStorage(database);
 }
 
 window.onload = () => {
   displayToDoList(database);
 };
-
-
