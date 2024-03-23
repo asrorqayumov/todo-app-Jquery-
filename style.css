@@ -12,11 +12,10 @@ form{
   position: relative;
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin: 50px 0px;
 }
 
 .title {
-  margin-bottom: 50px;
   padding: 7px 4px 7px 4px;
   border: 0.5px solid #101820FF;
   border-radius: 5px;
@@ -69,8 +68,10 @@ form{
  flex-direction: column;
  justify-content: center;
  align-items: center;
+ flex-wrap: wrap;
  list-style: none;
  text-transform: capitalize;
+ width: 100%;
 }
 
 .list{
@@ -81,7 +82,8 @@ form{
   color: #fff;
   border-radius: 10px;
   margin: 15px;
-  width: 600px;
+  width: 40%;
+  min-width: 300px;
   height: 50px;
   background-color:#45ADFF ;
 }
